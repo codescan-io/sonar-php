@@ -68,7 +68,7 @@
   </issueManagement>
 
   <properties>
-    <revision>3.27.1-SNAPSHOT</revision>
+    <revision>3.27.1-CODESCAN</revision>
     <version.enforcer.plugin>3.0.0-M3</version.enforcer.plugin>
     <gitRepositoryName>sonar-php</gitRepositoryName>
     <license.title>SonarQube PHP Plugin</license.title>
@@ -87,7 +87,7 @@
     <version.staxmate>2.0.1</version.staxmate>
     <version.sonar-orchestrator>3.40.0.183</version.sonar-orchestrator>
     <version.sslr>1.24.0.633</version.sslr>
-    <version.guava>30.1.1-jre</version.guava>
+    <version.guava>33.3.1-jre</version.guava>
     <version.sonarlint>4.7.0.12286</version.sonarlint>
     <version.analyzer-commons>2.1.0.1111</version.analyzer-commons>
     <version.plugin-api>9.11.0.290</version.plugin-api>
@@ -304,5 +304,16 @@
       </modules>
     </profile>
   </profiles>
+
+  <distributionManagement>
+    <repository>
+      <id>libs-release</id>
+      <url>https://artifactory.autorabit.com/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+      <id>libs-snapshots</id>
+      <url>https://artifactory.autorabit.com/artifactory/libs-snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
 
 </project>
