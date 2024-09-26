@@ -22,7 +22,7 @@
     <server>
       <id>libs-snapshot-local</id>
       <username>${user}</username>
-      <password>pass</password>
+      <password>${pass}</password>
     </server>
   </servers>
 </settings>
