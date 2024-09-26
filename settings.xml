@@ -1,7 +1,7 @@
 <settings>
   <profiles>
     <profile>
-      <id>test-profile</id>
+      <id>artifactory-profile</id>
       <properties>
         <user>${env.ARTIFACTORY_USER}</user>
         <pass>${env.ARTIFACTORY_PWD}</pass>
@@ -10,14 +10,14 @@
   </profiles>
 
   <activeProfiles>
-    <activeProfile>test-profile</activeProfile>
+    <activeProfile>artifactory-profile</activeProfile>
   </activeProfiles>
 
   <servers>
     <server>
       <id>libs-release-local</id>
-      <username>${env.ARTIFACTORY_USER}</username>
-      <password>${env.ARTIFACTORY_PWD}</password>
+      <username>${user}</username>
+      <password>${pass}</password>
     </server>
     <server>
       <id>libs-snapshot-local</id>
