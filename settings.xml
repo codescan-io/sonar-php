@@ -1,4 +1,18 @@
 <settings>
+  <profiles>
+    <profile>
+      <id>test-profile</id>
+      <properties>
+        <user>${env.ARTIFACTORY_USER}</user>
+        <pass>${env.ARTIFACTORY_PWD}</pass>
+      </properties>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>test-profile</activeProfile>
+  </activeProfiles>
+
   <servers>
     <server>
       <id>libs-release-local</id>
@@ -7,8 +21,8 @@
     </server>
     <server>
       <id>libs-snapshot-local</id>
-      <username>${env.ARTIFACTORY_USER}</username>
-      <password>${env.ARTIFACTORY_PWD}</password>
+      <username>${user}</username>
+      <password>pass</password>
     </server>
   </servers>
 </settings>
