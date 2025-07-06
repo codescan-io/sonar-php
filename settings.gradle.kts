@@ -72,12 +72,12 @@ dependencyResolutionManagement {
   repositories {
     mavenCentral()
     maven {
-      url = uri("https://repox.jfrog.io/repox/sonarsource")
+      url = uri("https://artifactory.autorabit.com/artifactory/libs-release")
       val artifactoryUsername =
-        providers.environmentVariable("ARTIFACTORY_PRIVATE_USERNAME")
+        providers.environmentVariable("ARTIFACTORY_USER")
           .orElse(providers.gradleProperty("artifactoryUsername"))
       val artifactoryPassword =
-        providers.environmentVariable("ARTIFACTORY_PRIVATE_PASSWORD")
+        providers.environmentVariable("ARTIFACTORY_PWD")
           .orElse(providers.gradleProperty("artifactoryPassword"))
 
       if (artifactoryUsername.isPresent && artifactoryPassword.isPresent) {

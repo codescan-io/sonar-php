@@ -22,22 +22,22 @@ plugins {
 }
 
 val kotlinGradleDelimiter = "(package|import|plugins|pluginManagement|dependencyResolutionManagement|repositories) "
-spotless {
-  // Mainly used to define spotless configuration for the build-logic
-  encoding(Charsets.UTF_8)
-  kotlinGradle {
-    ktlint().setEditorConfigPath("$rootDir/.editorconfig")
-    target("*.gradle.kts", "build-logic/*.gradle.kts", "/build-logic/src/**/*.gradle.kts")
-    licenseHeaderFile(
-      rootProject.file("LICENSE_HEADER"),
-      kotlinGradleDelimiter,
-    ).updateYearWithLatest(true)
-  }
-  kotlin {
-    ktlint().setEditorConfigPath("$rootDir/.editorconfig")
-    target("/build-logic/src/**/*.kt")
-    licenseHeaderFile(rootProject.file("LICENSE_HEADER")).updateYearWithLatest(true)
-  }
-}
+//spotless {
+//  // Mainly used to define spotless configuration for the build-logic
+//  encoding(Charsets.UTF_8)
+//  kotlinGradle {
+//    ktlint().setEditorConfigPath("$rootDir/.editorconfig")
+//    target("*.gradle.kts", "build-logic/*.gradle.kts", "/build-logic/src/**/*.gradle.kts")
+//    licenseHeaderFile(
+//      rootProject.file("LICENSE_HEADER"),
+//      kotlinGradleDelimiter,
+//    ).updateYearWithLatest(true)
+//  }
+//  kotlin {
+//    ktlint().setEditorConfigPath("$rootDir/.editorconfig")
+//    target("/build-logic/src/**/*.kt")
+//    licenseHeaderFile(rootProject.file("LICENSE_HEADER")).updateYearWithLatest(true)
+//  }
+//}
 
 tasks.artifactoryPublish { skip = true }

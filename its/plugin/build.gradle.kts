@@ -15,7 +15,7 @@
  * along with this program; if not, see https://sonarsource.com/license/ssal/
  */
 plugins {
-  id("org.sonarsource.php.code-style-convention")
+  //id("org.sonarsource.php.code-style-convention")
   id("org.sonarsource.php.java-conventions")
   id("org.sonarsource.php.integration-test")
 }
@@ -50,10 +50,10 @@ sonar {
   isSkipProject = true
 }
 
-codeStyleConvention {
-  spotless {
-    format("javaMisc") {
-      targetExclude("**/integrationTest/**")
-    }
-  }
-}
+//codeStyleConvention {
+//  spotless {
+//    format("javaMisc") {
+//      targetExclude("**/integrationTest/**")
+//    }
+//  }
+//}

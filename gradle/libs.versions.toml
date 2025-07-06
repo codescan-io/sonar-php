@@ -1,6 +1,6 @@
 [versions]
 sonar-commons = "2.16.0.3141"
-sonar-plugin-api = "10.14.0.2599"
+sonar-plugin-api = "10.11-CODESCAN"
 sonarqube = "10.7.0.96327"
 sonar-scanner-gradle = "6.0.0.5145"
 sonar-orchestrator = "5.0.0.2065"

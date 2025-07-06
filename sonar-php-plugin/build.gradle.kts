@@ -20,7 +20,7 @@ import org.sonarsource.php.registerCleanupTask
 plugins {
   id("org.sonarsource.php.java-conventions")
   id("org.sonarsource.php.artifactory-configuration")
-  id("org.sonarsource.php.code-style-convention")
+  //id("org.sonarsource.php.code-style-convention")
   alias(libs.plugins.shadow)
 }
 
