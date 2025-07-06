@@ -40,4 +40,45 @@ val kotlinGradleDelimiter = "(package|import|plugins|pluginManagement|dependency
 //  }
 //}
 
+artifactory {
+  val artifactsToPublish = "org.sonarsource.php:sonar-php-plugin:jar"
+
+  clientConfig.info.addEnvironmentProperty("ARTIFACTS_TO_PUBLISH", artifactsToPublish)
+  clientConfig.info.addEnvironmentProperty("ARTIFACTS_TO_DOWNLOAD", "")
+
+  setContextUrl(System.getenv("ARTIFACTORY_URL")?:"https://artifactory.autorabit.com/artifactory/")
+  publish {
+    repository {
+      setRepoKey(System.getenv("ARTIFACTORY_CODESCAN_REPO")?: "libs-release-local")
+      setUsername(System.getenv("ARTIFACTORY_USER"))
+      setPassword(System.getenv("ARTIFACTORY_PWD"))
+    }
+    defaults {
+      publications("mavenJava")
+      setProperties(
+        mapOf(
+          "build.name" to "sonar-php",
+          "version" to project.version.toString(),
+          "build.number" to project.ext["buildNumber"].toString(),
+          "pr.branch.target" to System.getenv("PULL_REQUEST_BRANCH_TARGET"),
+          "pr.number" to System.getenv("PULL_REQUEST_NUMBER"),
+          "vcs.branch" to System.getenv("GIT_BRANCH"),
+          "vcs.revision" to System.getenv("GIT_COMMIT"),
+        ),
+      )
+      setPublishArtifacts(true)
+      setPublishPom(true)
+      setPublishIvy(false)
+    }
+  }
+
+  clientConfig.info.addEnvironmentProperty("PROJECT_VERSION", project.version.toString())
+  clientConfig.info.buildName = "sonar-php"
+  clientConfig.info.buildNumber = project.ext["buildNumber"].toString()
+  clientConfig.isIncludeEnvVars = true
+  clientConfig.envVarsExcludePatterns =
+    "*password*,*PASSWORD*,*secret*,*MAVEN_CMD_LINE_ARGS*,sun.java.command," +
+      "*token*,*TOKEN*,*LOGIN*,*login*,*key*,*KEY*,*PASSPHRASE*,*signing*"
+}
+
 tasks.artifactoryPublish { skip = true }
